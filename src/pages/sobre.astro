@@ -1,0 +1,36 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/data/site';
+---
+<BaseLayout title="Sobre a Dantas Pousada | Hospedagem em Quixadá" description="Conheça a Dantas Pousada, hospedagem prática no Centro de Quixadá-CE, ideal para descanso, trabalho e turismo.">
+  <section class="bg-brand-radial py-24">
+    <div class="container-page grid gap-10 lg:grid-cols-[1fr_.85fr] lg:items-center">
+      <div>
+        <span class="eyebrow">A pousada</span>
+        <h1 class="mt-6 text-5xl font-black tracking-tight text-dantas-navy sm:text-6xl">Conforto, localização e atendimento direto em Quixadá.</h1>
+        <p class="mt-6 text-xl leading-9 text-slate-700">A Dantas Pousada recebe hóspedes que buscam praticidade no centro da cidade, com ambientes funcionais, comunicação simples pelo WhatsApp e acesso fácil a comércio, serviços e rotas turísticas.</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href={site.whatsappLink} target="_blank" rel="noreferrer" class="btn-primary">Consultar disponibilidade</a>
+          <a href={site.mapUrl} target="_blank" rel="noreferrer" class="btn-secondary">Ver localização</a>
+        </div>
+      </div>
+      <img src="/media/dantas-pousada/dantas-pousada-fachada.jpg" alt="Fachada da Dantas Pousada em Quixadá" class="h-[520px] w-full rounded-[2rem] object-cover shadow-soft" />
+    </div>
+  </section>
+  <section class="py-20">
+    <div class="container-page grid gap-6 md:grid-cols-3">
+      {[
+        ['Centro de Quixadá', 'Endereço estratégico para circular pela cidade e acessar serviços essenciais.'],
+        ['Estadia funcional', 'Quartos e ambientes pensados para descanso após trabalho, viagem ou passeio.'],
+        ['Atendimento próximo', 'Contato direto para tirar dúvidas, consultar datas e combinar detalhes da reserva.']
+      ].map(([title, text]) => <div class="card p-8"><h2 class="text-2xl font-black text-dantas-blue">{title}</h2><p class="mt-3 leading-7 text-slate-600">{text}</p></div>)}
+    </div>
+  </section>
+  <section class="bg-slate-50 py-20">
+    <div class="container-page max-w-4xl text-center">
+      <span class="eyebrow">Quixadá</span>
+      <h2 class="section-title mt-5">Uma base prática para conhecer o Sertão Central.</h2>
+      <p class="mt-5 text-lg leading-8 text-slate-600">A cidade é conhecida pelos monólitos, turismo de aventura, cultura local e eventos regionais. A pousada oferece uma estadia simples e conveniente para quem quer aproveitar Quixadá com facilidade.</p>
+    </div>
+  </section>
+</BaseLayout>

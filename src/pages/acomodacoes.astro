@@ -1,0 +1,37 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import MediaCarousel from '@/components/MediaCarousel.astro';
+import { site } from '@/data/site';
+---
+<BaseLayout title="Acomodações | Dantas Pousada Quixadá" description="Veja detalhes das acomodações da Dantas Pousada no Centro de Quixadá-CE e consulte disponibilidade pelo WhatsApp.">
+  <section class="bg-brand-radial py-24">
+    <div class="container-page grid gap-10 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
+      <div>
+        <span class="eyebrow">Acomodações</span>
+        <h1 class="mt-5 text-5xl font-black tracking-tight text-dantas-navy sm:text-6xl">Quartos simples, práticos e confortáveis para sua estadia.</h1>
+        <p class="mt-6 text-lg leading-8 text-slate-700">A estrutura da Dantas Pousada foi pensada para quem precisa descansar bem, estar perto do centro e resolver tudo com facilidade.</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href={site.whatsappLink} target="_blank" rel="noreferrer" class="btn-primary">Consultar datas</a>
+          <a href="/galeria" class="btn-secondary">Ver galeria</a>
+        </div>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <img src="/media/dantas-pousada/dantas-pousada-quarto-1.jpg" alt="Quarto da Dantas Pousada" class="h-72 w-full rounded-[2rem] object-cover shadow-soft" />
+        <img src="/media/dantas-pousada/dantas-pousada-quarto-2.jpg" alt="Ambiente interno da Dantas Pousada" class="h-72 w-full rounded-[2rem] object-cover shadow-soft sm:mt-12" />
+      </div>
+    </div>
+  </section>
+  <section class="py-20">
+    <div class="container-page grid gap-6 md:grid-cols-4">
+      {[
+        ['Descanso', 'Ambientes funcionais para dormir bem e recuperar energia.'],
+        ['Praticidade', 'Localização central para compromissos, compras e serviços.'],
+        ['Reserva direta', 'Converse pelo WhatsApp para confirmar disponibilidade e detalhes.'],
+        ['Turismo', 'Base conveniente para conhecer os atrativos de Quixadá.'],
+      ].map(([title, text]) => (
+        <div class="card p-7"><h2 class="text-xl font-black text-dantas-blue">{title}</h2><p class="mt-3 leading-7 text-slate-600">{text}</p></div>
+      ))}
+    </div>
+  </section>
+  <MediaCarousel />
+</BaseLayout>

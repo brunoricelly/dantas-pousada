@@ -1,0 +1,10 @@
+{
+  "name": "Dantas Pousada Quixadá",
+  "short_name": "Dantas Pousada",
+  "description": "Hospedagem prática e acolhedora no Centro de Quixadá-CE.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0B3A8D",
+  "icons": [{"src":"/favicon.svg","sizes":"64x64","type":"image/svg+xml"}]
+}

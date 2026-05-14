@@ -1,0 +1,40 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/data/site';
+const whatsMessage = encodeURIComponent('Olá, Dantas Pousada! Vim pelo site e quero consultar disponibilidade.');
+---
+<BaseLayout title="Contato | Dantas Pousada em Quixadá" description="Fale com a Dantas Pousada: telefone, WhatsApp e endereço no Centro de Quixadá-CE.">
+  <section class="bg-brand-radial py-24">
+    <div class="container-page grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+      <div>
+        <span class="eyebrow">Fale conosco</span>
+        <h1 class="mt-5 text-5xl font-black tracking-tight text-dantas-navy">Reserve ou tire suas dúvidas pelo WhatsApp.</h1>
+        <p class="mt-5 text-lg leading-8 text-slate-700">Informe datas, quantidade de hóspedes e qualquer necessidade da estadia para receber atendimento direto.</p>
+        <div class="mt-8 grid gap-4 text-lg text-slate-700">
+          <a href={`tel:${site.phone.replace(/\D/g, '')}`}><strong>Telefone:</strong> {site.phone}</a>
+          <a href={`${site.whatsappLink}?text=${whatsMessage}`} target="_blank" rel="noreferrer"><strong>WhatsApp:</strong> {site.whatsapp}</a>
+          <a href={`mailto:${site.email}`}><strong>E-mail:</strong> {site.email}</a>
+          <a href={site.mapUrl} target="_blank" rel="noreferrer"><strong>Endereço:</strong> {site.address}</a>
+        </div>
+      </div>
+      <div class="card p-6">
+        <h2 class="text-3xl font-black text-dantas-navy">Atendimento rápido</h2>
+        <p class="mt-3 leading-7 text-slate-600">Para confirmar disponibilidade, clique no botão abaixo e envie uma mensagem com suas datas de entrada e saída.</p>
+        <div class="mt-6 grid gap-3">
+          <a href={`${site.whatsappLink}?text=${whatsMessage}`} target="_blank" rel="noreferrer" class="btn-primary">Chamar no WhatsApp</a>
+          <a href={site.instagram} target="_blank" rel="noreferrer" class="btn-secondary">Ver Instagram</a>
+          <a href={site.googleTravel} target="_blank" rel="noreferrer" class="btn-secondary">Ver avaliação pública</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-10">
+    <div class="container-page">
+      <a href={site.mapUrl} target="_blank" rel="noreferrer" class="block rounded-[2rem] border border-slate-200 bg-slate-100 p-10 text-center shadow-sm">
+        <div class="text-5xl">📍</div>
+        <h2 class="mt-4 text-3xl font-black text-dantas-navy">Ver localização no Google Maps</h2>
+        <p class="mt-2 text-slate-600">{site.address}</p>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

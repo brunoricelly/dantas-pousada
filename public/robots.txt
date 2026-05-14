@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dantaspousada.chatwoot.space/sitemap-index.xml

@@ -1,0 +1,16 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import MediaCarousel from '@/components/MediaCarousel.astro';
+import InstagramShowcase from '@/components/InstagramShowcase.astro';
+---
+<BaseLayout title="Galeria | Dantas Pousada Quixadá" description="Fotos e publicações da Dantas Pousada em Quixadá-CE: quartos, fachada e ambientes da hospedagem.">
+  <section class="bg-brand-radial py-20">
+    <div class="container-page max-w-4xl text-center">
+      <span class="eyebrow">Galeria</span>
+      <h1 class="mt-5 text-5xl font-black tracking-tight text-dantas-navy sm:text-6xl">Veja fotos e conteúdos da pousada antes de reservar.</h1>
+      <p class="mt-5 text-lg leading-8 text-slate-700">Uma seleção visual para apresentar a estrutura, localização e presença digital da Dantas Pousada.</p>
+    </div>
+  </section>
+  <MediaCarousel />
+  <InstagramShowcase />
+</BaseLayout>

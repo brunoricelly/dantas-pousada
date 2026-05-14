@@ -1,0 +1,30 @@
+---
+import { gallery } from '@/data/site';
+---
+<section id="galeria" class="bg-slate-950 py-20 text-white">
+  <div class="container-page">
+    <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-3xl">
+        <span class="eyebrow !border-white/15 !bg-white/10 !text-white">Galeria</span>
+        <h2 class="section-title mt-5 !text-white">Veja a pousada por dentro antes de reservar.</h2>
+        <p class="mt-4 text-lg leading-8 text-slate-300">
+          Fotos públicas reunidas de fontes abertas. A estrutura foi organizada em carrossel para destacar quartos, chegada e ambientes da hospedagem.
+        </p>
+      </div>
+      <div class="rounded-full border border-white/10 px-5 py-3 text-sm font-bold text-slate-300">Fotos + posts do Instagram</div>
+    </div>
+
+    <div class="mt-12 overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl">
+      <div class="flex w-[800%] animate-gallery-slide gap-4">
+        {[...gallery, ...gallery].map((item) => (
+          <figure class="relative h-[420px] w-[calc(100%/8)] shrink-0 overflow-hidden rounded-[1.5rem] bg-slate-800 sm:h-[520px]">
+            <img src={item.src} alt={item.alt} loading="lazy" class="h-full w-full object-cover" />
+            <figcaption class="absolute bottom-4 left-4 right-4 rounded-2xl bg-black/45 p-4 text-sm font-black uppercase tracking-[0.16em] backdrop-blur">
+              {item.label}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

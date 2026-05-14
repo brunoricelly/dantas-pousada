@@ -1,0 +1,16 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/data/site';
+---
+<BaseLayout title="Termos de Uso | Dantas Pousada" description="Termos de uso do site da Dantas Pousada.">
+  <section class="container-page max-w-4xl py-20">
+    <h1 class="text-5xl font-black text-dantas-navy">Termos de Uso</h1>
+    <p class="mt-6 leading-8 text-slate-700">Ao acessar este site, você concorda com o uso das informações apresentadas para consulta, contato e relacionamento com a Dantas Pousada.</p>
+    <h2 class="mt-10 text-2xl font-black text-dantas-blue">Informações de hospedagem</h2>
+    <p class="mt-3 leading-8 text-slate-700">Descrições, fotos, valores e disponibilidade podem sofrer alterações. Confirme sempre as informações finais diretamente com a equipe de atendimento.</p>
+    <h2 class="mt-10 text-2xl font-black text-dantas-blue">Reservas</h2>
+    <p class="mt-3 leading-8 text-slate-700">O site facilita o contato pelo WhatsApp e canais informados, mas a confirmação de qualquer reserva depende do atendimento direto da pousada.</p>
+    <h2 class="mt-10 text-2xl font-black text-dantas-blue">Contato</h2>
+    <p class="mt-3 leading-8 text-slate-700">Dúvidas podem ser enviadas para <a class="font-bold text-dantas-blue" href={`mailto:${site.email}`}>{site.email}</a> ou pelo WhatsApp informado no site.</p>
+  </section>
+</BaseLayout>
