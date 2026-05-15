@@ -1,0 +1,112 @@
+---
+import { panoramas360 } from '@/data/site';
+---
+<section id="tour-360" class="relative overflow-hidden bg-white py-24">
+  <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-100 to-transparent"></div>
+  <div class="container-page relative">
+    <div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
+      <div>
+        <span class="eyebrow">Tour 360°</span>
+        <h2 class="section-title mt-5">Veja os ambientes em formato panorâmico.</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600">
+          Incluímos as imagens 360°/panorâmicas da galeria oficial para dar uma experiência mais imersiva antes da reserva.
+        </p>
+        <div class="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+          {panoramas360.map((item, index) => (
+            <button class:list={['pano-thumb rounded-3xl border p-4 text-left transition hover:-translate-y-1', index === 0 ? 'is-active border-dantas-blue bg-dantas-blue text-white' : 'border-slate-200 bg-slate-50 text-dantas-navy']} data-index={index}>
+              <span class="block text-xs font-black uppercase tracking-[0.22em] opacity-70">360°</span>
+              <strong class="mt-1 block text-lg">{item.label}</strong>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="card overflow-hidden p-4">
+        <div class="relative h-[520px] overflow-hidden rounded-[1.8rem] bg-slate-950">
+          {panoramas360.map((item, index) => (
+            <img
+              src={item.src}
+              alt={item.alt}
+              class:list={[
+                'pano-img absolute inset-0 h-full w-[140%] max-w-none object-cover transition-all duration-700',
+                index === 0 ? 'is-active opacity-100' : 'opacity-0'
+              ]}
+              data-index={index}
+              loading={index === 0 ? 'eager' : 'lazy'}
+            />
+          ))}
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10"></div>
+          <div class="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-2 text-sm font-black text-dantas-navy shadow-soft">Arraste o mouse / toque e deslize</div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <p class="text-xs font-black uppercase tracking-[0.25em] text-blue-100">Experiência panorâmica</p>
+            <h3 id="pano-title" class="mt-2 text-3xl font-black">{panoramas360[0].label}</h3>
+            <p class="mt-2 text-sm leading-6 text-white/80">A imagem se move horizontalmente para simular a visualização 360°.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ panoLabels: panoramas360.map((item) => item.label) }}>
+  const panoImgs = Array.from(document.querySelectorAll('.pano-img'));
+  const panoThumbs = Array.from(document.querySelectorAll('.pano-thumb'));
+  const panoTitle = document.getElementById('pano-title');
+  let currentPano = 0;
+  let dragging = false;
+  let startX = 0;
+  let offset = 0;
+
+  function setPano(index) {
+    currentPano = index;
+    panoImgs.forEach((img, i) => {
+      img.classList.toggle('opacity-100', i === index);
+      img.classList.toggle('opacity-0', i !== index);
+      img.classList.toggle('is-active', i === index);
+      if (i === index) img.style.transform = `translateX(${offset}px)`;
+    });
+    panoThumbs.forEach((btn, i) => btn.classList.toggle('is-active', i === index));
+    if (panoTitle) panoTitle.textContent = panoLabels[index];
+  }
+
+  function activeImg() {
+    return panoImgs[currentPano];
+  }
+
+  const stage = document.querySelector('#tour-360 .card .relative');
+  stage?.addEventListener('pointerdown', (event) => {
+    dragging = true;
+    startX = event.clientX - offset;
+    stage.setPointerCapture(event.pointerId);
+  });
+  stage?.addEventListener('pointermove', (event) => {
+    if (!dragging) return;
+    const img = activeImg();
+    const max = Math.max(0, img.offsetWidth - stage.clientWidth);
+    offset = Math.min(0, Math.max(-max, event.clientX - startX));
+    img.style.transform = `translateX(${offset}px)`;
+  });
+  stage?.addEventListener('pointerup', () => { dragging = false; });
+  stage?.addEventListener('pointerleave', () => { dragging = false; });
+  panoThumbs.forEach((btn) => btn.addEventListener('click', () => { offset = 0; setPano(Number(btn.dataset.index)); }));
+  setPano(0);
+</script>
+
+<style>
+  .pano-img.is-active {
+    animation: pano-drift 14s ease-in-out infinite alternate;
+  }
+  .pano-thumb.is-active {
+    border-color: #2163ff;
+    background: #2163ff;
+    color: #fff;
+    box-shadow: 0 20px 40px rgba(33,99,255,.18);
+  }
+  #tour-360 .card:hover .pano-img.is-active {
+    animation-play-state: paused;
+  }
+  @keyframes pano-drift {
+    from { transform: translateX(0); }
+    to { transform: translateX(-18%); }
+  }
+</style>
