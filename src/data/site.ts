@@ -48,9 +48,9 @@ export const featuredVideo = {
 export const gallery = [
   {
     type: 'image',
-    src: getMediaUrl(`${localMediaPath}/dantas-pousada-capa.jpg`, `${r2MediaPrefix}/dantas-pousada-capa.jpg`),
-    alt: 'Entrada e ambientes da Dantas Pousada em Quixadá',
-    label: 'Capa atual',
+    src: getMediaUrl(`${localMediaPath}/dantas-pousada-capa.jpg`, `${r2MediaPrefix}/imagem%20faxada.jpeg`),
+    alt: 'Fachada principal da Dantas Pousada em Quixadá',
+    label: 'Fachada principal',
   },
   {
     type: 'image',
