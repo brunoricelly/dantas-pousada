@@ -49,8 +49,9 @@ export const gallery = [
   {
     type: 'image',
     src: getMediaUrl(`${localMediaPath}/dantas-pousada-capa.jpg`, `${r2MediaPrefix}/imagem%20faxada.jpeg`),
-    alt: 'Fachada principal da Dantas Pousada em Quixadá',
-    label: 'Fachada principal',
+    alt: 'Fachada da Dantas Pousada em Quixadá',
+    label: 'Fachada Principal',
+    label: '{label_text}', // Gerado dinamicamente (opcional)
   },
   {
     type: 'image',
