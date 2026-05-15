@@ -34,9 +34,51 @@ const r2MediaPrefix = 'dantas-pousada/site';
 export const gallery = [
   {
     type: 'image',
-    src: getMediaUrl(`${localMediaPath}/dantas-pousada-fachada.jpg`, `${r2MediaPrefix}/dantas-pousada-fachada.jpg`),
-    alt: 'Fachada e entrada da Dantas Pousada em Quixadá',
-    label: 'Chegada prática no centro',
+    src: getMediaUrl(`${localMediaPath}/dantas-pousada-capa.jpg`, `${r2MediaPrefix}/dantas-pousada-capa.jpg`),
+    alt: 'Foto atualizada dos ambientes da Dantas Pousada em Quixadá',
+    label: 'Ambiente atualizado',
+  },
+  {
+    type: 'image',
+    src: getMediaUrl(`${localMediaPath}/dantas-pousada-galeria-01.jpg`, `${r2MediaPrefix}/dantas-pousada-galeria-01.jpg`),
+    alt: 'Quarto e acomodação da Dantas Pousada',
+    label: 'Acomodações reais',
+  },
+  {
+    type: 'image',
+    src: getMediaUrl(`${localMediaPath}/dantas-pousada-galeria-02.jpg`, `${r2MediaPrefix}/dantas-pousada-galeria-02.jpg`),
+    alt: 'Estrutura interna da Dantas Pousada para hóspedes',
+    label: 'Estrutura da pousada',
+  },
+  {
+    type: 'image',
+    src: getMediaUrl(`${localMediaPath}/dantas-pousada-galeria-03.jpg`, `${r2MediaPrefix}/dantas-pousada-galeria-03.jpg`),
+    alt: 'Ambiente de hospedagem da Dantas Pousada',
+    label: 'Hospedagem prática',
+  },
+  {
+    type: 'image',
+    src: getMediaUrl(`${localMediaPath}/dantas-pousada-galeria-04.jpg`, `${r2MediaPrefix}/dantas-pousada-galeria-04.jpg`),
+    alt: 'Detalhes da acomodação da Dantas Pousada',
+    label: 'Detalhes da estadia',
+  },
+  {
+    type: 'image',
+    src: getMediaUrl(`${localMediaPath}/dantas-pousada-galeria-05.jpg`, `${r2MediaPrefix}/dantas-pousada-galeria-05.jpg`),
+    alt: 'Área interna da Dantas Pousada',
+    label: 'Conforto e simplicidade',
+  },
+  {
+    type: 'image',
+    src: getMediaUrl(`${localMediaPath}/dantas-pousada-galeria-06.jpg`, `${r2MediaPrefix}/dantas-pousada-galeria-06.jpg`),
+    alt: 'Foto real da Dantas Pousada em Quixadá',
+    label: 'Fotos recentes',
+  },
+  {
+    type: 'image',
+    src: getMediaUrl(`${localMediaPath}/dantas-pousada-galeria-07.jpg`, `${r2MediaPrefix}/dantas-pousada-galeria-07.jpg`),
+    alt: 'Ambiente funcional da Dantas Pousada',
+    label: 'Para descansar bem',
   },
   {
     type: 'image',
@@ -46,15 +88,9 @@ export const gallery = [
   },
   {
     type: 'image',
-    src: getMediaUrl(`${localMediaPath}/dantas-pousada-quarto-2.jpg`, `${r2MediaPrefix}/dantas-pousada-quarto-2.jpg`),
-    alt: 'Ambiente interno de hospedagem da Dantas Pousada',
-    label: 'Ambientes aconchegantes',
-  },
-  {
-    type: 'image',
-    src: getMediaUrl(`${localMediaPath}/dantas-pousada-ambiente.jpg`, `${r2MediaPrefix}/dantas-pousada-ambiente.jpg`),
-    alt: 'Área e detalhes da estrutura da Dantas Pousada',
-    label: 'Conforto pelo melhor preço',
+    src: getMediaUrl(`${localMediaPath}/dantas-pousada-fachada.jpg`, `${r2MediaPrefix}/dantas-pousada-fachada.jpg`),
+    alt: 'Fachada e entrada da Dantas Pousada em Quixadá',
+    label: 'Chegada no centro',
   },
 ] as const;
 

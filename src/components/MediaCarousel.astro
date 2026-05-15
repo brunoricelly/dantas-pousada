@@ -1,5 +1,8 @@
 ---
 import { gallery } from '@/data/site';
+
+const carouselItems = [...gallery, ...gallery];
+const slideCount = carouselItems.length;
 ---
 <section id="galeria" class="bg-slate-950 py-20 text-white">
   <div class="container-page">
@@ -11,13 +14,13 @@ import { gallery } from '@/data/site';
           Fotos públicas reunidas de fontes abertas. A estrutura foi organizada em carrossel para destacar quartos, chegada e ambientes da hospedagem.
         </p>
       </div>
-      <div class="rounded-full border border-white/10 px-5 py-3 text-sm font-bold text-slate-300">Fotos + posts do Instagram</div>
+      <div class="rounded-full border border-white/10 px-5 py-3 text-sm font-bold text-slate-300">Fotos reais + posts do Instagram</div>
     </div>
 
     <div class="mt-12 overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl">
-      <div class="flex w-[800%] animate-gallery-slide gap-4">
-        {[...gallery, ...gallery].map((item) => (
-          <figure class="relative h-[420px] w-[calc(100%/8)] shrink-0 overflow-hidden rounded-[1.5rem] bg-slate-800 sm:h-[520px]">
+      <div class="gallery-track flex gap-4" style={`width: ${slideCount * 100}%`}>
+        {carouselItems.map((item) => (
+          <figure class="relative h-[420px] shrink-0 overflow-hidden rounded-[1.5rem] bg-slate-800 sm:h-[520px]" style={`width: calc(100% / ${slideCount})`}>
             <img src={item.src} alt={item.alt} loading="lazy" class="h-full w-full object-cover" />
             <figcaption class="absolute bottom-4 left-4 right-4 rounded-2xl bg-black/45 p-4 text-sm font-black uppercase tracking-[0.16em] backdrop-blur">
               {item.label}
@@ -28,3 +31,22 @@ import { gallery } from '@/data/site';
     </div>
   </div>
 </section>
+
+<style>
+  .gallery-track {
+    animation: gallery-slide 70s linear infinite;
+  }
+
+  .gallery-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes gallery-slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>
