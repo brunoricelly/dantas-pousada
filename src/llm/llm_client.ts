@@ -72,4 +72,4 @@ async function tryOpenRouter(imageUrl: string): Promise<string> {
   }
 }
 
-export { generateAltText };
+
